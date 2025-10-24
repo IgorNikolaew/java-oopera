@@ -1,7 +1,7 @@
 public class Person {
-    final String name; //не буду пока что final ставить, чтобы была возможность редактирования ошибок, уже введенных режиссеров
-    final String surname;
-    final String gender;
+     String name; //не буду пока что final ставить, чтобы была возможность редактирования ошибок, уже введенных режиссеров
+     String surname;
+     String gender;
     int height;
 
 
@@ -11,4 +11,6 @@ public class Person {
         this.gender = gender;
         this.height = height;
     }
+
+
 }
