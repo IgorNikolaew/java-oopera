@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Show {
     String title;
@@ -34,8 +35,8 @@ public class Show {
         }
     }
 
-    void removeActor() {
-            System.out.println("Удалить актера из спска спектакля. " + title);
+    void removeActor() { /// метод для удаления актера из спектакля
+            System.out.println("Удалить актера из спска спектакля  " + title);
 
             for (Actor actor : listOfActors) {
                 int i = 1;
@@ -43,9 +44,51 @@ public class Show {
                 i++;
             }
             System.out.println("Введите номер актера, которого нужно удалить из списка ... ");
-            int number
+            Scanner scanner = new Scanner();
+            int numberToRemove = scanner.nextInt();
+            listOfActors.remove(numberToRemove-1);
+            System.out.println("Актер " +listOfActors.get(numberToRemove-1)  + "был удален из списка");
 
         }
+
+        void replaceActor() { //метод для замены актера в спктакле. Одного на другого.
+            System.out.println("Заменить актера в спектакле  " + title);
+
+            for (Actor actor : listOfActors) {
+                int i = 1;
+                System.out.println(i + ". " + actor.name + " " + actor.surname);
+                i++;
+            }
+            System.out.println("Введите номер актера, которого нужно заменить ... ");
+            Scanner scanner = new Scanner();
+            int numberToReplace = scanner.nextInt();
+            listOfActors.remove(numberToReplace-1);
+
+
+            System.out.println("Список всех акктеров театра.");
+
+            for (Actor actor : Main.allActorsOfTheatre ) {
+                int i = 1;
+                System.out.println(i + ". " + actor.name + " " + actor.surname);
+                i++;
+            }
+
+            System.out.println("Введите номер актера для добавления в спекакль: ");
+            int whoAdd = scanner.nextInt();
+
+            listOfActors.add(Main.allActorsOfTheatre.get(whoAdd-1));
+
+
+
+
+
+
+
+
+
+        }
+
+
     }
 
 

@@ -10,9 +10,6 @@ public class MusicalShow extends Show {
         this.librettoText = librettoText;
     }
 
-    public MusicalShow() {
-    }
-
     public void printLIbretto() { //РАСПЕЧАТАТЬ ТЕКСТ ЛИБРЕТТО
         System.out.println(librettoText);
 
