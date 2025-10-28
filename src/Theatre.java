@@ -37,7 +37,7 @@ public class Theatre {
         System.out.println("Выберите действие:");
         System.out.println("Выберите действие:");
 
-
+ф
 
 
     }
