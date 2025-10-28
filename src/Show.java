@@ -67,7 +67,7 @@ public class Show {
 
             System.out.println("Список всех акктеров театра.");
 
-            for (Actor actor : Main.allActorsOfTheatre ) {
+            for (Actor actor : Theatre.allActorsOfTheatre ) {
                 int i = 1;
                 System.out.println(i + ". " + actor.name + " " + actor.surname);
                 i++;
@@ -76,7 +76,7 @@ public class Show {
             System.out.println("Введите номер актера для добавления в спекакль: ");
             int whoAdd = scanner.nextInt();
 
-            listOfActors.add(Main.allActorsOfTheatre.get(whoAdd-1));
+            listOfActors.add(Theatre.allActorsOfTheatre.get(whoAdd-1));
 
 
 
@@ -84,9 +84,7 @@ public class Show {
 
 
 
-
-
-        }
+       }
 
 
     }
