@@ -1,16 +1,31 @@
+import java.util.Objects;
+
 public class Person {
-     String name; //не буду пока что final ставить, чтобы была возможность редактирования ошибок, уже введенных режиссеров
-     String surname;
-     String gender;
-    int height;
+    protected String name;
+    protected String surname;
+    protected Gender gender;
+    protected int height;
 
-
-    public Person(String name, String surname, String gender, int height) {
+    public Person(String name, String surname, Gender gender, int height) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
         this.height = height;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return height == person.height &&
+                Objects.equals(name, person.name) &&
+                Objects.equals(surname, person.surname) &&
+                gender == person.gender;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, gender, height);
+    }
 }

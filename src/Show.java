@@ -1,12 +1,10 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Show {
     String title;
     double duration;
     Director director;
     ArrayList<Actor> listOfActors;
-
 
     public Show(String title, double duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
@@ -15,85 +13,39 @@ public class Show {
         this.listOfActors = listOfActors;
     }
 
-    public void printActorsOfShow() { //Печатает список артистов
-        System.out.println("Аткеры, учавствующие в спектакле: ");
+    public void printDirectorInfo() {
+        System.out.println("Режиссёр спектакля '" + title + "': " + director.toString());
+    }
 
-        for (Actor actor : listOfActors) {
-            int i = 1;
-            System.out.println(i + ". " + actor.name + " " + actor.surname + " Рост: " + actor.height + " см");
-            i++;
-
+    public void printActorsOfShow() {
+        System.out.println("Актеры, участвующие в спектакле '" + title + "':");
+        for (int i = 0; i < listOfActors.size(); i++) {
+            Actor actor = listOfActors.get(i);
+            System.out.println((i + 1) + ". " + actor.toString());
         }
     }
 
-    void addActorToShow(Actor actor) { //Добавляет уже существующего актера в список актеров спектакля
+    public boolean addActorToShow(Actor actor) {
         if (listOfActors.contains(actor)) {
-            System.out.println("Этот артист уже есть в списке");
+            System.out.println("Предупреждение: Актер " + actor.name + " " + actor.surname + " уже есть в спектакле!");
+            return false;
         } else {
             listOfActors.add(actor);
             System.out.println("Актер " + actor.name + " " + actor.surname + " успешно добавлен в спектакль");
+            return true;
         }
     }
 
-    void removeActor() { /// метод для удаления актера из спектакля
-            System.out.println("Удалить актера из спска спектакля  " + title);
-
-            for (Actor actor : listOfActors) {
-                int i = 1;
-                System.out.println(i + ". " + actor.name + " " + actor.surname);
-                i++;
+    public boolean replaceActor(Actor newActor, String surnameToReplace) {
+        for (int i = 0; i < listOfActors.size(); i++) {
+            Actor currentActor = listOfActors.get(i);
+            if (currentActor.surname.equals(surnameToReplace)) {
+                listOfActors.set(i, newActor);
+                System.out.println("Актер " + surnameToReplace + " заменен на " + newActor.name + " " + newActor.surname);
+                return true;
             }
-            System.out.println("Введите номер актера, которого нужно удалить из списка ... ");
-            Scanner scanner = new Scanner();
-            int numberToRemove = scanner.nextInt();
-            listOfActors.remove(numberToRemove-1);
-            System.out.println("Актер " +listOfActors.get(numberToRemove-1)  + "был удален из списка");
-
         }
-
-        void replaceActor() { //метод для замены актера в спктакле. Одного на другого.
-            System.out.println("Заменить актера в спектакле  " + title);
-
-            for (Actor actor : listOfActors) {
-                int i = 1;
-                System.out.println(i + ". " + actor.name + " " + actor.surname);
-                i++;
-            }
-            System.out.println("Введите номер актера, которого нужно заменить ... ");
-            Scanner scanner = new Scanner();
-            int numberToReplace = scanner.nextInt();
-            listOfActors.remove(numberToReplace-1);
-
-
-            System.out.println("Список всех акктеров театра.");
-
-            for (Actor actor : Theatre.allActorsOfTheatre ) {
-                int i = 1;
-                System.out.println(i + ". " + actor.name + " " + actor.surname);
-                i++;
-            }
-
-            System.out.println("Введите номер актера для добавления в спекакль: ");
-            int whoAdd = scanner.nextInt();
-
-            listOfActors.add(Theatre.allActorsOfTheatre.get(whoAdd-1));
-
-
-
-
-
-
-
-       }
-
-
+        System.out.println("Предупреждение: Актер с фамилией '" + surnameToReplace + "' не найден в спектакле!");
+        return false;
     }
-
-
-
-
-
-
-    
-
-
+}
