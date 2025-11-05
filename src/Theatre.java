@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Theatre {
-    public static ArrayList<Actor> allActorsOfTheatre = new ArrayList<>();
+    private static ArrayList<Actor> allActorsOfTheatre = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("Здравствуйте! Наш театр начинает работу.");

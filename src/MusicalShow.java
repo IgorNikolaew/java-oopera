@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class MusicalShow extends Show {
-    String musicAuthor;
-    String librettoText;
+    private String musicAuthor;
+    private String librettoText;
 
     public MusicalShow(String title, double duration, Director director, ArrayList<Actor> listOfActors,
                        String musicAuthor, String librettoText) {
